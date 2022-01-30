@@ -6,7 +6,7 @@ export (int) var gravity = 3000
 export var jumped = false
 
 var velocity = Vector2()
-var direction = "right"
+var direction = "left"
 onready var timer = get_node("Jump Timer")
 
 func _ready():
