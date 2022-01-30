@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tall_guy.png-62bbc1a56030a938fa8a7d78d2a620bb.stex"
+path="res://.import/skwerel.jpg-80619b608a373795479a97d364153572.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stuff/tall_guy.png"
-dest_files=[ "res://.import/tall_guy.png-62bbc1a56030a938fa8a7d78d2a620bb.stex" ]
+source_file="res://sprites/skwerel.jpg"
+dest_files=[ "res://.import/skwerel.jpg-80619b608a373795479a97d364153572.stex" ]
 
 [params]
 

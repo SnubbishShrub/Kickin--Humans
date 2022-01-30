@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button.png-64b3a72f57dc8d9967aef205805d6221.stex"
+path="res://.import/lil_girl.png-2984a981f74265a38201df9dc1d28d2d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stuff/button.png"
-dest_files=[ "res://.import/button.png-64b3a72f57dc8d9967aef205805d6221.stex" ]
+source_file="res://sprites/lil_girl.png"
+dest_files=[ "res://.import/lil_girl.png-2984a981f74265a38201df9dc1d28d2d.stex" ]
 
 [params]
 

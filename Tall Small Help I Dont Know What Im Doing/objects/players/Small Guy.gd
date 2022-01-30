@@ -33,12 +33,6 @@ func get_input():
 		velocity.x -= speed
 		if velocity.x < -max_speed:
 			velocity.x *= max_friction
-	if Input.is_action_just_pressed("2_right") and direction == "left":
-		$"lg_sprite".scale.x = 1
-		direction = "right"
-	if Input.is_action_just_pressed("2_left") and direction == "right":
-		$"lg_sprite".scale.x = -1
-		direction = "left"
 
 func _process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -78,18 +72,18 @@ func _physics_process(delta):
 		if is_on_floor():
 			velocity.y = jump_speed
 		elif $"Left Raycast".is_colliding():
-				if Input.is_action_pressed("2_left"):
-					print("less")
-					velocity.y = 0.4 * wall_jump_speed_y
-					velocity.x = wall_jump_speed_x
-				elif Input.is_action_pressed("2_right"):
-					print("more")
-					velocity.y = 1.2 * wall_jump_speed_y
-					velocity.x = wall_jump_speed_x
-				else:
-					print("normal")
-					velocity.y = wall_jump_speed_y
-					velocity.x = wall_jump_speed_x
+			if Input.is_action_pressed("2_left"):
+				print("less")
+				velocity.y = 0.4 * wall_jump_speed_y
+				velocity.x = wall_jump_speed_x
+			elif Input.is_action_pressed("2_right"):
+				print("more")
+				velocity.y = 1.2 * wall_jump_speed_y
+				velocity.x = wall_jump_speed_x
+			else:
+				print("normal")
+				velocity.y = wall_jump_speed_y
+				velocity.x = wall_jump_speed_x
 		elif $"Right Raycast".is_colliding():
 			if Input.is_action_pressed("2_right"):
 				print("less")
@@ -103,6 +97,11 @@ func _physics_process(delta):
 				print("normal")
 				velocity.y = wall_jump_speed_y
 				velocity.x = -wall_jump_speed_x
+	
+	if velocity.x > 0:
+		$lg_sprite.flip_h = false
+	elif velocity.x < 0:
+		$lg_sprite.flip_h = true
 
 func kickHit():
 	kicked = true

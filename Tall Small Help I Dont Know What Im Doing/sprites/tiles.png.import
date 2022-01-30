@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lever.png-e5e4290f25b8a8d217ae1a1c76c341d8.stex"
+path="res://.import/tiles.png-f29defd6e309a9af15cb61d2b28e9181.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stuff/lever.png"
-dest_files=[ "res://.import/lever.png-e5e4290f25b8a8d217ae1a1c76c341d8.stex" ]
+source_file="res://sprites/tiles.png"
+dest_files=[ "res://.import/tiles.png-f29defd6e309a9af15cb61d2b28e9181.stex" ]
 
 [params]
 

@@ -15,8 +15,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GlobalLever="*res://Global_Lever.gd"
-BigJump="*res://Big Jump.gd"
+GlobalLever="*res://objects/others/Global_Lever.gd"
+BigJump="*res://objects/others/Big Jump.gd"
 
 [input]
 

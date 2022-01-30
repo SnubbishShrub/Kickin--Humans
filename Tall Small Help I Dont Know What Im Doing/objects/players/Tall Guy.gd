@@ -22,14 +22,7 @@ func get_input():
 		velocity.x += speed
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= speed
-	if Input.is_action_just_pressed("ui_right") and direction == "left":
-		scale.x = -1
-		direction = "right"
-	if Input.is_action_just_pressed("ui_left") and direction == "right":
-		scale.x = -1
-		direction = "left"
-		
-		
+
 func _physics_process(delta):
 	get_input()
 	velocity.y += gravity * delta
@@ -41,8 +34,6 @@ func _physics_process(delta):
 		jumped = false
 		BigJump.bigJump()
 		
-func _process(_delta):
-	velocity = move_and_slide(velocity, Vector2.UP)
 	if velocity.x != 0 and is_on_floor():
 		state_machine.travel("Walk")
 	elif not is_on_floor():
@@ -54,6 +45,11 @@ func _process(_delta):
 		state_machine.travel("Kick")
 	else:
 		state_machine.travel("Idle")
+	
+	if velocity.x > 0:
+		$tg_sprite.flip_h = true
+	elif velocity.x < 0:
+		$tg_sprite.flip_h = false
 
 func jump_timer():
 	jumped = true
