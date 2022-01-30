@@ -33,6 +33,7 @@ func _physics_process(delta):
 	if is_on_floor() and jumped == true:
 		jumped = false
 		BigJump.bigJump()
+		$"Bang".play_random()
 		
 	if velocity.x != 0 and is_on_floor():
 		state_machine.travel("Walk")
@@ -55,3 +56,4 @@ func _physics_process(delta):
 
 func jump_timer():
 	jumped = true
+	
