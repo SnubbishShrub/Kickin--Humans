@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://objects/players/Tall Guy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/players/Small Guy.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://objects/others/Goal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sprites/bg.png" type="Texture" id=8]
 [ext_resource path="res://objects/tiles/Door.gd" type="Script" id=9]
+[ext_resource path="res://sound effects/Kickin Humans.ogg" type="AudioStream" id=10]
 
 [node name="Node2D" type="Node2D"]
 
@@ -66,3 +67,8 @@ format = 1
 tile_data = PoolIntArray( 1310770, 0, 7, 1376306, 0, 7, 1441842, 0, 7, 1507378, 0, 7, 1572914, 0, 7, 1638450, 0, 7, 1703986, 0, 7 )
 script = ExtResource( 9 )
 require_button = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -13.983
+autoplay = true
