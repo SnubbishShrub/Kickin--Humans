@@ -78,7 +78,7 @@ one_shot = true
 
 [node name="tg_sprite" type="Sprite" parent="Tall Guy"]
 texture = ExtResource( 10 )
-hframes = 12
+hframes = 15
 frame = 11
 
 [node name="KinematicBody2D2" type="KinematicBody2D" parent="."]
@@ -151,7 +151,7 @@ collide_with_areas = true
 
 [node name="lg_sprite" type="Sprite" parent="Small Guy"]
 texture = ExtResource( 11 )
-hframes = 9
+hframes = 11
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 position = Vector2( 403, 451 )
