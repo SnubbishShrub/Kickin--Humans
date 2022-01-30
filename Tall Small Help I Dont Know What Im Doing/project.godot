@@ -15,7 +15,6 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GlobalLever="*res://objects/others/Global_Lever.gd"
 BigJump="*res://objects/others/Big Jump.gd"
 KickAndBreak="*res://objects/others/Kick and Break.gd"
 

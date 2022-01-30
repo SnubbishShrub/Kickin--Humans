@@ -20,9 +20,6 @@ var direction = "right"
 onready var kickbox = get_node("../Tall Guy/Kickbox")
 onready var state_machine = $AnimationTree["parameters/playback"]
 
-func _ready():
-	print(kickbox)
-
 func get_input():
 	velocity.x *= friction
 	if Input.is_action_pressed("2_right"):
@@ -34,32 +31,18 @@ func get_input():
 		if velocity.x < -max_speed:
 			velocity.x *= max_friction
 
-func _process(delta):
-	velocity = move_and_slide(velocity, Vector2.UP)
-	if kicked == true:
-		state_machine.travel("Ball")
-	elif velocity.x != 0 and is_on_floor():
-		state_machine.travel("Walk")
-	elif not is_on_floor():
-		state_machine.travel("Fall")
-	elif Input.is_action_just_pressed("ui_up") and is_on_floor():
-		state_machine.travel("Jump")
-		return
-	elif ($"Left Raycast".is_colliding() or $"Right Raycast".is_colliding()) and \
-	not is_on_floor():
-		state_machine.travel("Slide")
-	else:
-		state_machine.travel("Idle")
-
 func _physics_process(delta):
-	if $"Hurtbox".overlaps_area(kickbox) and Input.is_action_just_pressed("ui_down"):
+	if $Hurtbox.overlaps_area(kickbox) and Input.is_action_just_pressed("ui_down"):
 		kickHit()
 	kick_time -= delta
 	if kick_time <= 0:
 		kick_time = 1
 		kicked = false
 	get_input()
-	velocity = move_and_slide(velocity, Vector2.UP)
+	if velocity.x > 0:
+		$lg_sprite.flip_h = false
+	elif velocity.x < 0:
+		$lg_sprite.flip_h = true
 	if velocity.x < 1 and velocity.x > -1:
 		velocity.x = 0
 	if is_on_wall():
@@ -97,18 +80,27 @@ func _physics_process(delta):
 				print("normal")
 				velocity.y = wall_jump_speed_y
 				velocity.x = -wall_jump_speed_x
-	
-	if velocity.x > 0:
-		$lg_sprite.flip_h = false
-	elif velocity.x < 0:
-		$lg_sprite.flip_h = true
+	velocity = move_and_slide(velocity, Vector2.UP)
+	state_machine.travel("Idle")
+	if kicked == true:
+		state_machine.travel("Ball")
+		return
+	elif velocity.x != 0 and is_on_floor():
+		state_machine.travel("Walk")
+	elif not is_on_floor():
+		state_machine.travel("Fall")
+	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+		state_machine.travel("Jump")
+		return
+	elif ($"Left Raycast".is_colliding() or $"Right Raycast".is_colliding()) and \
+	not is_on_floor():
+		state_machine.travel("Slide")
 
 func kickHit():
 	kicked = true
-	KickAndBreak.Kicked()
-	if $"Hurtbox/Left Raycast2".is_colliding():
-		velocity.x = kick_x
-		velocity.y = kick_y
-	elif $"Hurtbox/Right Raycast2".is_colliding():
+	if $"Hurtbox/Left Raycast".is_colliding():
 		velocity.x = -kick_x
+		velocity.y = kick_y
+	elif $"Hurtbox/Right Raycast".is_colliding():
+		velocity.x = kick_x
 		velocity.y = kick_y

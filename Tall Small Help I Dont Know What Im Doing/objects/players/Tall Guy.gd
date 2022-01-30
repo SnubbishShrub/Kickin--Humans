@@ -48,8 +48,10 @@ func _physics_process(delta):
 	
 	if velocity.x > 0:
 		$tg_sprite.flip_h = true
+		$Kickbox.position.x = 8
 	elif velocity.x < 0:
 		$tg_sprite.flip_h = false
+		$Kickbox.position.x = -8
 
 func jump_timer():
 	jumped = true

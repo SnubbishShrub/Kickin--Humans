@@ -1,17 +1,10 @@
-[gd_scene load_steps=141 format=2]
+[gd_scene load_steps=126 format=2]
 
-[ext_resource path="res://objects/others/Door.tscn" type="PackedScene" id=1]
-[ext_resource path="res://objects/tiles/Breakable Wall.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/others/Button.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/others/Lever.gd" type="Script" id=4]
 [ext_resource path="res://objects/others/ShakeCamera2D.gd" type="Script" id=5]
 [ext_resource path="res://objects/players/Tall Guy.gd" type="Script" id=6]
 [ext_resource path="res://objects/players/Small Guy.gd" type="Script" id=7]
-[ext_resource path="res://icon.png" type="Texture" id=8]
 [ext_resource path="res://sprites/lil_girl.png" type="Texture" id=9]
 [ext_resource path="res://sprites/tall_guy.png" type="Texture" id=10]
-[ext_resource path="res://sprites/lever.png" type="Texture" id=11]
-[ext_resource path="res://objects/others/Spike Thing.gd" type="Script" id=12]
 [ext_resource path="res://sprites/tiles.png" type="Texture" id=13]
 [ext_resource path="res://sprites/autotile.png" type="Texture" id=14]
 
@@ -201,9 +194,6 @@ graph_offset = Vector2( -280, 62 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6, 8 )
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 6.5, 8 )
-
 [sub_resource type="Animation" id=39]
 resource_name = "Ball"
 loop = true
@@ -389,93 +379,8 @@ graph_offset = Vector2( -191, 104 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=69]
 
-[sub_resource type="CircleShape2D" id=5]
-radius = 12.0913
-
-[sub_resource type="Animation" id=136]
-resource_name = "Blue Off"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Lever Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 3 ]
-}
-
-[sub_resource type="Animation" id=137]
-resource_name = "Blue On"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Lever Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 2 ]
-}
-
-[sub_resource type="Animation" id=138]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Lever Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1 ]
-}
-
-[sub_resource type="Animation" id=139]
-resource_name = "Red Off"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Lever Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-
-[sub_resource type="Animation" id=140]
-resource_name = "Red On"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Lever Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 13.5, 7 )
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 15.5, 16 )
+[sub_resource type="RectangleShape2D" id=136]
+extents = Vector2( 8, 8 )
 
 [sub_resource type="ConvexPolygonShape2D" id=80]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -1032,12 +937,12 @@ position = Vector2( 1.5, 0 )
 shape = SubResource( 4 )
 
 [node name="Kickbox" type="Area2D" parent="Tall Guy"]
-position = Vector2( 1, 0 )
+position = Vector2( -8, 0 )
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tall Guy/Kickbox"]
-position = Vector2( -11, 32 )
+position = Vector2( 0, 32 )
 shape = SubResource( 6 )
 
 [node name="Jump Timer" type="Timer" parent="Tall Guy"]
@@ -1073,35 +978,13 @@ shape = SubResource( 3 )
 
 [node name="Left Raycast" type="RayCast2D" parent="Small Guy"]
 rotation = 1.5708
-scale = Vector2( 1, 0.2 )
+scale = Vector2( 1, -0.16 )
 enabled = true
 
 [node name="Right Raycast" type="RayCast2D" parent="Small Guy"]
-rotation = -1.5708
-scale = Vector2( 1, 0.2 )
-enabled = true
-
-[node name="Hurtbox" type="Area2D" parent="Small Guy"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Small Guy/Hurtbox"]
-position = Vector2( 0.5, 0 )
-shape = SubResource( 7 )
-
-[node name="Left Raycast2" type="RayCast2D" parent="Small Guy/Hurtbox"]
 rotation = 1.5708
-scale = Vector2( 0.985776, 0.139577 )
+scale = Vector2( 1, 0.16 )
 enabled = true
-collision_mask = 2
-collide_with_areas = true
-
-[node name="Right Raycast2" type="RayCast2D" parent="Small Guy/Hurtbox"]
-rotation = -1.5708
-scale = Vector2( 1.2, 0.162491 )
-enabled = true
-collision_mask = 2
-collide_with_areas = true
 
 [node name="lg_sprite" type="Sprite" parent="Small Guy"]
 texture = ExtResource( 9 )
@@ -1122,68 +1005,22 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 69 )
 
-[node name="Door" parent="." instance=ExtResource( 1 )]
-position = Vector2( 443, 452 )
+[node name="Hurtbox" type="Area2D" parent="Small Guy"]
+collision_layer = 2
+collision_mask = 2
 
-[node name="Levers" type="Node2D" parent="Door"]
-position = Vector2( 1, 2 )
+[node name="collider" type="CollisionShape2D" parent="Small Guy/Hurtbox"]
+shape = SubResource( 136 )
 
-[node name="Lever" type="Node2D" parent="Door/Levers"]
-position = Vector2( 336, 0 )
-scale = Vector2( 6.96332, 5.9147 )
-script = ExtResource( 4 )
-red = false
+[node name="Left Raycast" type="RayCast2D" parent="Small Guy/Hurtbox"]
+rotation = 1.5708
+scale = Vector2( 1, -0.16 )
+enabled = true
 
-[node name="Lever Sprite" type="Sprite" parent="Door/Levers/Lever"]
-scale = Vector2( 0.165414, 0.189474 )
-texture = ExtResource( 11 )
-hframes = 4
-frame = 1
-
-[node name="Area2D" type="Area2D" parent="Door/Levers/Lever"]
-scale = Vector2( 0.165414, 0.189474 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Levers/Lever/Area2D"]
-position = Vector2( -0.000488281, 1.52588e-05 )
-shape = SubResource( 5 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Door/Levers/Lever"]
-"anims/Blue Off" = SubResource( 136 )
-"anims/Blue On" = SubResource( 137 )
-anims/RESET = SubResource( 138 )
-"anims/Red Off" = SubResource( 139 )
-"anims/Red On" = SubResource( 140 )
-
-[node name="Buttons" type="Node2D" parent="Door"]
-position = Vector2( 559, 11 )
-
-[node name="Button" parent="Door/Buttons" instance=ExtResource( 3 )]
-position = Vector2( -437, -5 )
-scale = Vector2( 2.96, 8.44 )
-red = false
-
-[node name="Breakable Wall" parent="." instance=ExtResource( 2 )]
-position = Vector2( 830, 396 )
-scale = Vector2( 0.4, 0.449386 )
-
-[node name="Spike Thing" type="KinematicBody2D" parent="."]
-position = Vector2( 519, 446 )
-script = ExtResource( 12 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike Thing"]
-position = Vector2( -0.5, 3 )
-shape = SubResource( 8 )
-
-[node name="Area2D" type="Area2D" parent="Spike Thing"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike Thing/Area2D"]
-position = Vector2( -0.5, -6 )
-shape = SubResource( 9 )
-
-[node name="Sprite" type="Sprite" parent="Spike Thing"]
-position = Vector2( -0.500001, -6.00002 )
-scale = Vector2( 0.484375, 0.500001 )
-texture = ExtResource( 8 )
+[node name="Right Raycast" type="RayCast2D" parent="Small Guy/Hurtbox"]
+rotation = 1.5708
+scale = Vector2( 1, 0.16 )
+enabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 606, 400 )
@@ -1199,4 +1036,4 @@ position = Vector2( 605, 400 )
 tile_set = SubResource( 88 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 1048598, 0, 0, 1048602, 0, 0, 1114134, 0, 0, 1114138, 0, 0, 1179670, 0, 0, 1179674, 0, 0, 1245206, 0, 0, 1245210, 0, 0, 1310742, 0, 0, 1310746, 0, 0, 1376278, 0, 0, 1376282, 0, 0, 1441814, 0, 0, 1441818, 0, 0, 1507350, 0, 0, 1507354, 0, 0, 1572886, 0, 0, 1572890, 0, 0, 1638422, 0, 0, 1703958, 0, 0, 1769494, 0, 0, 1835030, 0, 0, 1900566, 0, 0, 1900567, 1, 196610, 1900568, 1, 196610, 1900569, 1, 196610, 1900570, 1, 196610, 1900571, 1, 196610, 1900572, 1, 196610, 1900573, 1, 196610, 1900574, 1, 196610, 1900575, 1, 196610, 1900576, 1, 196610, 1900577, 1, 196610, 1900578, 1, 196610, 1900579, 1, 196610, 1900580, 1, 196610, 1900581, 1, 196610, 1900582, 1, 196610, 1900583, 1, 196610, 1900584, 1, 196610, 1900585, 1, 196610, 1900586, 1, 196610, 1900587, 1, 196610, 1900588, 1, 196610, 1900589, 1, 196610, 1900590, 1, 196610, 1900591, 1, 196610, 1900592, 1, 196610, 1900593, 1, 196610, 1900594, 1, 196610, 1900595, 1, 196610, 1900596, 1, 196610, 1900597, 1, 196611 )
+tile_data = PoolIntArray( 1048598, 1, 0, 1048602, 1, 0, 1114134, 1, 65536, 1114138, 1, 65536, 1179670, 1, 65536, 1179674, 1, 65536, 1245206, 1, 65536, 1245210, 1, 65536, 1310742, 1, 65536, 1310746, 1, 65536, 1376278, 1, 65536, 1376282, 1, 65536, 1441814, 1, 65536, 1441818, 1, 65536, 1507350, 1, 65536, 1507354, 1, 65536, 1572886, 1, 65536, 1572890, 1, 131072, 1638422, 1, 65536, 1703958, 1, 65536, 1769494, 1, 65536, 1835030, 1, 65536, 1900566, 1, 131073, 1900567, 1, 196610, 1900568, 1, 196610, 1900569, 1, 196610, 1900570, 1, 196610, 1900571, 1, 196610, 1900572, 1, 196610, 1900573, 1, 196610, 1900574, 1, 196610, 1900575, 1, 196610, 1900576, 1, 196610, 1900577, 1, 196610, 1900578, 1, 196610, 1900579, 1, 196610, 1900580, 1, 196610, 1900581, 1, 196610, 1900582, 1, 196610, 1900583, 1, 196610, 1900584, 1, 196610, 1900585, 1, 196610, 1900586, 1, 196610, 1900587, 1, 196610, 1900588, 1, 196610, 1900589, 1, 196610, 1900590, 1, 196610, 1900591, 1, 196610, 1900592, 1, 196610, 1900593, 1, 196610, 1900594, 1, 196610, 1900595, 1, 196610, 1900596, 1, 196610, 1900597, 1, 196611 )
