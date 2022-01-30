@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://ShakeCamera2D.gd" type="Script" id=1]
+[ext_resource path="res://Stuff/skwerel.jpg" type="Texture" id=2]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="ShakeCamera2D" type="Camera2D" parent="."]
+current = true
 script = ExtResource( 1 )
+target = NodePath("../Sprite")
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -7.00001, -6 )
+scale = Vector2( 4.15789, 3.50526 )
+texture = ExtResource( 2 )
