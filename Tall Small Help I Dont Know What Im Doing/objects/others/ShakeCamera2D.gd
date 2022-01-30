@@ -17,8 +17,6 @@ func _ready():
 	noise.period = 4
 	noise.octaves = 2
 	BigJump.connect("bigJump", self, "add_trauma")
-	KickAndBreak.connect("Break", self, "add_trauma")
-	KickAndBreak.connect("Kicked", self, "add_trauma")
 	
 func add_trauma(num):
 	trauma = min(trauma + num, 1.0)
