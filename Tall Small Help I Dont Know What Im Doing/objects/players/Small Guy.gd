@@ -101,6 +101,8 @@ func kickHit():
 	if $"Hurtbox/Left Raycast".is_colliding():
 		velocity.x = -kick_x
 		velocity.y = kick_y
+		print("left")
 	elif $"Hurtbox/Right Raycast".is_colliding():
 		velocity.x = kick_x
 		velocity.y = kick_y
+		print("right")
