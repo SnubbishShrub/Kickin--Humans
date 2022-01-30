@@ -1,0 +1,226 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://sprites/tall_guy.png" type="Texture" id=1]
+[ext_resource path="res://objects/players/Tall Guy.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 40 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 5, 8 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "Fall"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("tg_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 13 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("tg_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("tg_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Kick"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("tg_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 9, 6 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Land"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("tg_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 14 ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("tg_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Walk"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("tg_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4, 5 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Fall"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "Kick"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "Land"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=25]
+states/Fall/node = SubResource( 17 )
+states/Fall/position = Vector2( 144, 182 )
+states/Idle/node = SubResource( 18 )
+states/Idle/position = Vector2( 313, 169 )
+states/Jump/node = SubResource( 19 )
+states/Jump/position = Vector2( 208, 96 )
+states/Kick/node = SubResource( 20 )
+states/Kick/position = Vector2( 466, 256 )
+states/Land/node = SubResource( 21 )
+states/Land/position = Vector2( 267, 270 )
+states/Walk/node = SubResource( 22 )
+states/Walk/position = Vector2( 475, 125 )
+transitions = [ "Idle", "Walk", SubResource( 23 ), "Walk", "Idle", SubResource( 24 ), "Walk", "Jump", SubResource( 27 ), "Idle", "Jump", SubResource( 28 ), "Idle", "Kick", SubResource( 30 ), "Walk", "Kick", SubResource( 31 ), "Fall", "Land", SubResource( 32 ), "Idle", "Fall", SubResource( 35 ), "Jump", "Fall", SubResource( 36 ), "Land", "Idle", SubResource( 37 ), "Kick", "Idle", SubResource( 38 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -280, 62 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=26]
+
+[node name="Tall Guy" type="KinematicBody2D"]
+position = Vector2( 678, 403 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.5, 0 )
+shape = SubResource( 4 )
+
+[node name="Kickbox" type="Area2D" parent="."]
+position = Vector2( -8, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kickbox"]
+position = Vector2( 0, 32 )
+shape = SubResource( 6 )
+
+[node name="Jump Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="tg_sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 15
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fall = SubResource( 10 )
+anims/Idle = SubResource( 11 )
+anims/Jump = SubResource( 12 )
+anims/Kick = SubResource( 13 )
+anims/Land = SubResource( 14 )
+anims/RESET = SubResource( 15 )
+anims/Walk = SubResource( 16 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 25 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 26 )
