@@ -47,6 +47,9 @@ tile_data = PoolIntArray( 655383, 1, 8, 655384, 1, 10, 655385, 1, 10, 655386, 1,
 [node name="Node2D" parent="." instance=ExtResource( 7 )]
 position = Vector2( 842, 419 )
 scale = Vector2( 0.12, 0.08 )
+player = NodePath("../Small Guy")
+player2 = NodePath("../Tall Guy")
+next_level = "res://levels/Demo But Different.tscn"
 
 [node name="Door" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
@@ -60,6 +63,5 @@ require_lever = true
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 1310770, 0, 7, 1376306, 0, 7, 1441842, 0, 7, 1507378, 0, 7, 1572914, 0, 7, 1638450, 0, 7, 1703986, 0, 7 )
 script = ExtResource( 9 )
 require_button = true
