@@ -105,6 +105,7 @@ func _physics_process(delta):
 
 func kickHit():
 	kicked = true
+	KickAndBreak.Kicked()
 	if $"Hurtbox/Left Raycast2".is_colliding():
 		velocity.x = kick_x
 		velocity.y = kick_y

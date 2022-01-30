@@ -1167,7 +1167,7 @@ position = Vector2( 830, 396 )
 scale = Vector2( 0.4, 0.449386 )
 
 [node name="Spike Thing" type="KinematicBody2D" parent="."]
-position = Vector2( 522, 452 )
+position = Vector2( 519, 446 )
 script = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spike Thing"]

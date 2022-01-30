@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 
 GlobalLever="*res://objects/others/Global_Lever.gd"
 BigJump="*res://objects/others/Big Jump.gd"
+KickAndBreak="*res://objects/others/Kick and Break.gd"
 
 [input]
 
