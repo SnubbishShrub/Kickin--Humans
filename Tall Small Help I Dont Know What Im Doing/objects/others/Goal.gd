@@ -5,5 +5,5 @@ export (NodePath) var player2
 export (String, FILE) var next_level
 
 func _process(delta):
-	if overlaps_body($player) or overlaps_body($player2):
+	if overlaps_body(get_node(player)) or overlaps_body(get_node(player2)):
 		get_tree().change_scene(next_level)
