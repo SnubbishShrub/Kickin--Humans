@@ -1,13 +1,13 @@
 extends Camera2D
 
 
-export var decay = 0.8  # How quickly the shaking stops [0, 1].
-export var max_offset = Vector2(100, 75)  # Maximum hor/ver shake in pixels.
-export var max_roll = 0.1  # Maximum rotation in radians (use sparingly).
-export (NodePath) var target  # Assign the node this camera will follow.
+export var decay = 0.8 
+export var max_offset = Vector2(100, 75) 
+export var max_roll = 0.1 
+export (NodePath) var target  
 
-var trauma = 0.0  # Current shake strength.
-var trauma_power = 2  # Trauma exponent. Use [2, 3].
+var trauma = 0.0 
+var trauma_power = 2 
 var noise_y = 0
 onready var noise = OpenSimplexNoise.new()
 
@@ -16,14 +16,12 @@ func _ready():
 	noise.seed = randi()
 	noise.period = 4
 	noise.octaves = 2
-	BigJump.connect("bigJump", self, "add_trauma(0.2)")
+	BigJump.connect("bigJump", self, "add_trauma")
 	
 func add_trauma(num):
 	trauma = min(trauma + num, 1.0)
 	
 func _process(delta):
-	if Input.is_action_just_pressed("ui_down"):
-		add_trauma(0.2)
 	if target:
 		global_position = get_node(target).global_position
 	if trauma:
