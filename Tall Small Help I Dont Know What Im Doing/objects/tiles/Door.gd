@@ -1,5 +1,7 @@
 extends TileMap
 
+export var reverted: bool
+
 export var require_button: bool
 export var require_lever: bool
 export var required_button_id: int
@@ -31,7 +33,8 @@ func _lever_off(lever_id):
 		required_lever_switched = false
 
 func _physics_process(delta):
-	if ((required_button_pressed and require_button) or not require_button) and ((required_lever_switched and require_lever) or not require_lever):
+	var unlocked = ((required_button_pressed and require_button) or not require_button) and ((required_lever_switched and require_lever) or not require_lever)
+	if (reverted and not unlocked) or (not reverted and unlocked):
 		visible = false
 		collision_layer = 8
 		collision_mask = 8
