@@ -31,7 +31,7 @@ func _lever_off(lever_id):
 		required_lever_switched = false
 
 func _physics_process(delta):
-	if ((required_button_pressed and require_button) or (not required_button_pressed and not require_button)) and ((required_lever_switched and require_lever) or (not required_lever_switched and not require_lever)):
+	if ((required_button_pressed and require_button) or not require_button) and ((required_lever_switched and require_lever) or not require_lever):
 		visible = false
 		collision_layer = 8
 		collision_mask = 8
