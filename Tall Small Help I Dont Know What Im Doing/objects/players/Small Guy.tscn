@@ -27,6 +27,7 @@ extents = Vector2( 6, 8 )
 
 [sub_resource type="Animation" id=39]
 resource_name = "Ball"
+length = 0.1
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("lg_sprite:frame")
@@ -35,24 +36,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( -0.1, 0 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 9 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("Kicked")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "play_random"
-} ]
+"values": [ 9, 9 ]
 }
 
 [sub_resource type="Animation" id=40]
@@ -237,7 +224,7 @@ states/Walk/node = SubResource( 51 )
 states/Walk/position = Vector2( 500, 546 )
 transitions = [ "Walk", "Fall", SubResource( 57 ), "Walk", "Jump", SubResource( 59 ), "Walk", "Ball", SubResource( 62 ), "Jump", "Ball", SubResource( 63 ), "Fall", "Ball", SubResource( 64 ), "Slide", "Ball", SubResource( 65 ), "Ball", "Fall", SubResource( 66 ), "Jump", "Fall", SubResource( 67 ), "Fall", "Slide", SubResource( 71 ), "Idle", "Slide", SubResource( 72 ), "Idle", "Jump", SubResource( 73 ), "Idle", "Walk", SubResource( 74 ), "Walk", "Idle", SubResource( 75 ), "Idle", "Fall", SubResource( 76 ), "Fall", "Idle", SubResource( 77 ), "Slide", "Fall", SubResource( 78 ), "Slide", "Idle", SubResource( 79 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -191, 104 )
+graph_offset = Vector2( -223, 212 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=69]
 
@@ -289,13 +276,13 @@ shape = SubResource( 136 )
 [node name="Left Raycast" type="RayCast2D" parent="Hurtbox"]
 position = Vector2( 9, 0 )
 rotation = 1.5708
-scale = Vector2( 1, -0.02 )
+scale = Vector2( 1, -0.15 )
 enabled = true
 
 [node name="Right Raycast" type="RayCast2D" parent="Hurtbox"]
 position = Vector2( -9, 0 )
 rotation = 1.5708
-scale = Vector2( 1, 0.02 )
+scale = Vector2( 1, 0.1 )
 enabled = true
 
 [node name="Step" type="AudioStreamPlayer" parent="."]
@@ -308,3 +295,6 @@ volume_db = -7.505
 pitch_scale = 0.84
 script = ExtResource( 3 )
 audio_files = [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 17 ), ExtResource( 19 ) ]
+
+[node name="Kicked Timer" type="Timer" parent="."]
+wait_time = 0.5

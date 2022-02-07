@@ -22,6 +22,7 @@ texture = ExtResource( 8 )
 [node name="Small Guy" parent="." instance=ExtResource( 2 )]
 
 [node name="Tall Guy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 680, 411 )
 
 [node name="Lever" parent="." instance=ExtResource( 4 )]
 position = Vector2( 722, 441 )
