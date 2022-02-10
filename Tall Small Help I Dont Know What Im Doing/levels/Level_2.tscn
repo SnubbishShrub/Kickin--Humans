@@ -62,7 +62,7 @@ position = Vector2( 256, 144 )
 position = Vector2( 480, 168 )
 
 [node name="Button" parent="." instance=ExtResource( 8 )]
-position = Vector2( 447, 328 )
+position = Vector2( 32, 88 )
 
 [node name="Goal" parent="." instance=ExtResource( 6 )]
 position = Vector2( 296, 48.0001 )
