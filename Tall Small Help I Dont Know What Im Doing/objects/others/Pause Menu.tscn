@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprites/pause menu.png" type="Texture" id=1]
+
+[node name="Pause Menu" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="Resume" type="Button" parent="."]
+visible = false
+margin_left = -32.0
+margin_top = -20.0
+margin_right = -20.0
+rect_scale = Vector2( 5.16476, 0.666574 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="."]
+visible = false
+margin_left = -32.0
+margin_top = 4.0
+margin_right = -20.0
+margin_bottom = 24.0
+rect_scale = Vector2( 5.16, 0.72 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Button" parent="."]
+visible = false
+margin_left = -33.0
+margin_top = 29.0
+margin_right = 28.0
+margin_bottom = 49.0
+rect_scale = Vector2( 1.04, 0.720001 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

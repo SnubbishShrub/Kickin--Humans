@@ -4,12 +4,13 @@
 [ext_resource path="res://objects/others/ShakeCamera2D.gd" type="Script" id=2]
 [ext_resource path="res://sprites/bg.png" type="Texture" id=3]
 [ext_resource path="res://sound effects/Kickin Humans.ogg" type="AudioStream" id=4]
-[ext_resource path="res://objects/players/Small Guy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/characters/Small Guy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/others/Goal.tscn" type="PackedScene" id=6]
-[ext_resource path="res://objects/players/Tall Guy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/characters/Tall Guy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/tiles/Button.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/tiles/Lever.tscn" type="PackedScene" id=9]
 [ext_resource path="res://levels/tileset.tres" type="TileSet" id=10]
+
 
 [node name="Node2D" type="Node2D"]
 
