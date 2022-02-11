@@ -1,43 +1,60 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://sprites/pause menu.png" type="Texture" id=1]
+[ext_resource path="res://objects/others/Pause Menu.gd" type="Script" id=2]
 
-[node name="Pause Menu" type="Node2D"]
+[node name="Pause Menu" type="CanvasLayer"]
+pause_mode = 2
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P Menu" type="Sprite" parent="Control"]
+visible = false
+scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 hframes = 4
 
-[node name="Resume" type="Button" parent="."]
-visible = false
-margin_left = -32.0
-margin_top = -20.0
-margin_right = -20.0
-rect_scale = Vector2( 5.16476, 0.666574 )
+[node name="Resume" type="Button" parent="Control"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -95.0
+margin_top = -62.0
+margin_right = -83.0
+margin_bottom = -42.0
+rect_scale = Vector2( 15.4848, 2.30657 )
+mouse_default_cursor_shape = 2
+disabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Reset" type="Button" parent="."]
-visible = false
-margin_left = -32.0
-margin_top = 4.0
-margin_right = -20.0
-margin_bottom = 24.0
-rect_scale = Vector2( 5.16, 0.72 )
+[node name="Reset" type="Button" parent="Control"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -95.0
+margin_top = 12.0
+margin_right = -83.0
+margin_bottom = 32.0
+rect_scale = Vector2( 15.48, 2.08 )
+mouse_default_cursor_shape = 2
+disabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Menu" type="Button" parent="."]
-visible = false
-margin_left = -33.0
-margin_top = 29.0
-margin_right = 28.0
-margin_bottom = 49.0
-rect_scale = Vector2( 1.04, 0.720001 )
+[node name="Menu" type="Button" parent="Control"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -97.0
+margin_top = 85.0
+margin_right = -36.0
+margin_bottom = 105.0
+rect_scale = Vector2( 3.12, 2.24 )
+mouse_default_cursor_shape = 2
+disabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

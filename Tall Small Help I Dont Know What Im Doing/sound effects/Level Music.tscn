@@ -1,3 +1,9 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sound effects/Kickin Humans.ogg" type="AudioStream" id=1]
 
 [node name="Level Music" type="AudioStreamPlayer"]
+pause_mode = 2
+stream = ExtResource( 1 )
+volume_db = -13.11
+autoplay = true

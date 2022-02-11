@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://objects/characters/Tall Guy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/characters/Small Guy.tscn" type="PackedScene" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://objects/others/Goal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sprites/bg.png" type="Texture" id=8]
 [ext_resource path="res://objects/tiles/Door.gd" type="Script" id=9]
-[ext_resource path="res://sound effects/Kickin Humans.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sound effects/Level Music.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/others/Pause Menu.tscn" type="PackedScene" id=11]
 
 [node name="Node2D" type="Node2D"]
 
@@ -32,6 +33,18 @@ position = Vector2( 456, 88 )
 
 [node name="Camera Focus" type="Node2D" parent="."]
 position = Vector2( 256, 144 )
+
+[node name="Pause Menu" parent="Camera Focus" instance=ExtResource( 11 )]
+
+[node name="Control" parent="Camera Focus/Pause Menu" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 256, 144 )
@@ -69,7 +82,6 @@ tile_data = PoolIntArray( 589850, 0, 7, 655386, 0, 7, 720922, 0, 7, 786458, 0, 7
 script = ExtResource( 9 )
 require_button = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
-volume_db = -13.983
-autoplay = true
+[node name="Level Music" parent="." instance=ExtResource( 10 )]
+
+[editable path="Camera Focus/Pause Menu"]
