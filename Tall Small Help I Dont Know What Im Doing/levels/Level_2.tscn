@@ -3,7 +3,7 @@
 [ext_resource path="res://objects/tiles/Door.gd" type="Script" id=1]
 [ext_resource path="res://objects/others/ShakeCamera2D.gd" type="Script" id=2]
 [ext_resource path="res://sprites/bg.png" type="Texture" id=3]
-[ext_resource path="res://sound effects/Kickin Humans.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sound effects/Level Music.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/characters/Small Guy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/others/Goal.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/characters/Tall Guy.tscn" type="PackedScene" id=7]
@@ -11,11 +11,9 @@
 [ext_resource path="res://objects/tiles/Lever.tscn" type="PackedScene" id=9]
 [ext_resource path="res://levels/tileset.tres" type="TileSet" id=10]
 
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.662745, 0.666667, 0.811765, 1 )
 position = Vector2( 288, 144 )
 texture = ExtResource( 3 )
 
@@ -72,7 +70,4 @@ player = NodePath("../Small Guy")
 player2 = NodePath("../Tall Guy")
 next_level = "res://levels/ShakeCamera2D.tscn"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -11.361
-autoplay = true
+[node name="Level Music" parent="." instance=ExtResource( 4 )]

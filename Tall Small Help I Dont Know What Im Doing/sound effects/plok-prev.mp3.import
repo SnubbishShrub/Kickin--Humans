@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/plok-prev.mp3-0833fc09eb68dface4c110ed7f4e5b08.mp3str"
+
+[deps]
+
+source_file="res://sound effects/plok-prev.mp3"
+dest_files=[ "res://.import/plok-prev.mp3-0833fc09eb68dface4c110ed7f4e5b08.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

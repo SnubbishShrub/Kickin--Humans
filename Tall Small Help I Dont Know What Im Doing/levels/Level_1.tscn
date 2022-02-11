@@ -14,9 +14,20 @@
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Pause Menu" parent="." instance=ExtResource( 11 )]
+
+[node name="Control" parent="Pause Menu" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.662745, 0.666667, 0.811765, 1 )
-position = Vector2( 288, 144 )
+position = Vector2( 277, 144 )
 texture = ExtResource( 8 )
 
 [node name="Small Guy" parent="." instance=ExtResource( 2 )]
@@ -33,18 +44,6 @@ position = Vector2( 456, 88 )
 
 [node name="Camera Focus" type="Node2D" parent="."]
 position = Vector2( 256, 144 )
-
-[node name="Pause Menu" parent="Camera Focus" instance=ExtResource( 11 )]
-
-[node name="Control" parent="Camera Focus/Pause Menu" index="0"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 256, 144 )
@@ -84,4 +83,4 @@ require_button = true
 
 [node name="Level Music" parent="." instance=ExtResource( 10 )]
 
-[editable path="Camera Focus/Pause Menu"]
+[editable path="Pause Menu"]

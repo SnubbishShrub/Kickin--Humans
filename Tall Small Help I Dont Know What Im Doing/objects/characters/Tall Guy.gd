@@ -20,16 +20,11 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	# Prevent movement after boom
-	if can_move == false:
-		return
-	
-	# L/R Movement
-	get_input()
+	if can_move == true:
+		get_input()
 	
 	# Vert Movement
 	velocity.y += gravity * delta
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		velocity.y = jump_speed
 		
 	# Big Landing
 	if not is_on_floor():
@@ -46,13 +41,12 @@ func _physics_process(delta):
 	# Animation
 	if Input.is_action_just_pressed("ui_down"):
 		state_machine.travel("Kick")
+	elif Input.is_action_just_pressed("ui_up") and is_on_floor() and can_move == true:
+		state_machine.travel("Jump")
 	elif velocity.x != 0 and is_on_floor():
 		state_machine.travel("Walk")
 	elif not is_on_floor():
 		state_machine.travel("Fall")
-	elif Input.is_action_just_pressed("ui_up") and is_on_floor():
-		state_machine.travel("Jump")
-		return
 	else:
 		state_machine.travel("Idle")
 	
@@ -75,3 +69,6 @@ func get_input():
 		velocity.x += speed
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= speed
+		
+func jump():
+	velocity.y = jump_speed

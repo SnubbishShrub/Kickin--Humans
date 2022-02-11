@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sprites/spikies.png" type="Texture" id=1]
-[ext_resource path="res://objects/characters/Spikey Guy.gd" type="Script" id=2]
+[ext_resource path="res://objects/characters/Spikies.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 1 )
@@ -96,10 +96,12 @@ states/Jump/position = Vector2( 378, 55 )
 states/Land/node = SubResource( 9 )
 states/Land/position = Vector2( 295, 139 )
 transitions = [ "Idle", "Jump", SubResource( 10 ), "Jump", "Land", SubResource( 11 ), "Land", "Idle", SubResource( 12 ) ]
+start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=14]
 
-[node name="Spikey Guy" type="KinematicBody2D"]
+[node name="Spikies" type="KinematicBody2D"]
+position = Vector2( 527, 17 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
