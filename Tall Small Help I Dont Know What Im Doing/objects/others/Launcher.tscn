@@ -114,6 +114,7 @@ scale = Vector2( 0.399999, 0.800001 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2( 1.5, 1 )
 shape = SubResource( 3 )
+disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -129,3 +130,5 @@ anims/Stopped = SubResource( 6 )
 [node name="Auto" type="Timer" parent="."]
 
 [node name="Cooldown" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
