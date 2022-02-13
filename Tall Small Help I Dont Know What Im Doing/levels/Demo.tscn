@@ -11,7 +11,7 @@
 [ext_resource path="res://objects/others/Launcher.tscn" type="PackedScene" id=9]
 
 [node name="Demo" type="Node2D"]
-position = Vector2( 0, -1 )
+position = Vector2( -14, 1 )
 
 [node name="Tall Guy" parent="." instance=ExtResource( 3 )]
 
@@ -49,6 +49,4 @@ position = Vector2( 529, 444 )
 guy = NodePath("../Small Guy")
 
 [node name="Launcher" parent="." instance=ExtResource( 9 )]
-position = Vector2( 512, 357 )
-controllable = true
-wait = 0.5
+position = Vector2( 591, 453 )

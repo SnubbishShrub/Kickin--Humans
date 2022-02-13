@@ -12,6 +12,7 @@ export (float) var friction = 0.7
 export (float) var max_friction = 0.4
 export (int) var kick_x = 2000
 export (int) var kick_y = -200
+export (int) var boot = 3000
 
 var velocity = Vector2()
 var kicked = false
@@ -107,3 +108,14 @@ func get_input():
 		velocity.x -= speed
 		if velocity.x < -max_speed:
 			velocity.x *= max_friction
+
+func launch(direction):
+	print("pow")
+	if direction == "up":
+		velocity.y = -boot
+	elif direction == "down":
+		velocity.y = boot
+	elif direction == "right":
+		velocity.x = boot
+	else:
+		velocity.x = -boot
