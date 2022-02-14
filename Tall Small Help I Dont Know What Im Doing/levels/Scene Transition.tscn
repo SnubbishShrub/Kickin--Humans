@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/Transition.png" type="Texture" id=1]
+[ext_resource path="res://levels/Scene Transition.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Close"
+length = 1.33333
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 27, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Open"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 27 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 27 ]
+}
+
+[node name="Scene Transition" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+hframes = 7
+vframes = 4
+frame = 27
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_priority = -1
+anims/Close = SubResource( 1 )
+anims/Open = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="Sprite" method="_on_AnimationPlayer_animation_finished"]

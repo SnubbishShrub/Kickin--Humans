@@ -8,6 +8,7 @@ onready var sprite = $"P Menu"
 onready var resume = $"Resume"
 onready var reset = $"Reset"
 onready var menu = $"Menu"
+onready var pos = $"P Menu".position
 
 
 func _process(_delta):
@@ -26,21 +27,6 @@ func _process(_delta):
 			resume.disabled = true
 			reset.disabled = true
 			menu.disabled = true
-			
-	if resume.is_pressed():
-		level.paused = false
-		paused = false
-		sprite.visible = false
-		resume.disabled = true
-		reset.disabled = true
-		menu.disabled = true
-		
-	if reset.is_pressed():
-		level.paused = false
-		get_tree().reload_current_scene()
-			
-	if menu.is_pressed():
-		get_tree().change_scene("res://levels/temp_menu.tscn")
 	
 	if resume.is_hovered():
 		sprite.set_frame(1)
@@ -51,3 +37,19 @@ func _process(_delta):
 	else:
 		sprite.set_frame(0)
 		
+
+func _on_Resume_pressed():
+	level.paused = false
+	paused = false
+	sprite.visible = false
+	resume.disabled = true
+	reset.disabled = true
+	menu.disabled = true
+
+func _on_Reset_pressed():
+	level.paused = false
+	SceneChange.scene_change(get_tree().current_scene.filename, pos)
+
+func _on_Menu_pressed():
+	level.paused = false
+	SceneChange.scene_change("res://levels/temp_menu.tscn", pos)
