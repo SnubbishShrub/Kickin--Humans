@@ -20,6 +20,7 @@ BigJump="*res://objects/others/Big Jump.gd"
 DoorAutoload="*res://objects/tiles/DoorAutoload.gd"
 KickAndBreak="*res://objects/others/Kick and Break.gd"
 SceneChange="*res://levels/scene_change.gd"
+LevelState="*res://levels/Level_State.gd"
 
 [display]
 
