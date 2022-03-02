@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://objects/tiles/Door.gd" type="Script" id=1]
 [ext_resource path="res://objects/others/ShakeCamera2D.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://objects/tiles/Lever.tscn" type="PackedScene" id=9]
 [ext_resource path="res://levels/tileset.tres" type="TileSet" id=10]
 [ext_resource path="res://levels/Scene Transition.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/others/Level Complete.tscn" type="PackedScene" id=12]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 34, 1 )
@@ -19,6 +20,14 @@ position = Vector2( 34, 1 )
 
 [node name="Sprite" parent="Scene Transition" index="0"]
 position = Vector2( 292, 145 )
+
+[node name="Level Complete" parent="." instance=ExtResource( 12 )]
+
+[node name="Control" parent="Level Complete" index="0"]
+margin_left = 276.0
+margin_top = 144.0
+margin_right = 316.0
+margin_bottom = 184.0
 
 [node name="Pause Menu" parent="." instance=ExtResource( 4 )]
 
@@ -107,7 +116,8 @@ position = Vector2( 296, 48.0001 )
 scale = Vector2( 0.120001, 0.120001 )
 player = NodePath("../Small Guy")
 player2 = NodePath("../Tall Guy")
-next_level = "res://levels/ShakeCamera2D.tscn"
+current_level = 2
 
 [editable path="Scene Transition"]
+[editable path="Level Complete"]
 [editable path="Pause Menu"]

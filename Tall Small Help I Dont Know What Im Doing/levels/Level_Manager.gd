@@ -11,6 +11,11 @@ func _ready():
 			n.disabled = true
 			
 	$Sprite.set_frame(LevelState.unlocked.size() - 1)
+	
+	if LevelState.unlocked.size() == 16:
+		$"Complete Music".play()
+	else:
+		$"Normal Music".play()
 
 func change(level, pos):
 	pos[0] += 30

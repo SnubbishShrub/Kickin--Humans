@@ -10,10 +10,9 @@ func complete(level):
 func _ready():
 	connect("complete", self, "add")
 	unlocked.append("1")
-	unlocked.append("2")
 	
 func add(level):
 	for n in unlocked:
-		if n == level:
+		if n == str(level + 1):
 			return
-	unlocked.append(level)
+	unlocked.append(str(level + 1))

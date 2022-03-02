@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://objects/characters/Tall Guy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/characters/Small Guy.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://objects/tiles/Door.gd" type="Script" id=9]
 [ext_resource path="res://levels/Scene Transition.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/others/Pause Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/others/Level Complete.tscn" type="PackedScene" id=12]
 
 [node name="Level 1" type="Node2D"]
 position = Vector2( 30, -3 )
@@ -19,6 +20,14 @@ position = Vector2( 30, -3 )
 
 [node name="Sprite" parent="Scene Transition" index="0"]
 position = Vector2( 290, 142 )
+
+[node name="Level Complete" parent="." instance=ExtResource( 12 )]
+
+[node name="Control" parent="Level Complete" index="0"]
+margin_left = 293.0
+margin_top = 146.0
+margin_right = 333.0
+margin_bottom = 186.0
 
 [node name="Pause Menu" parent="." instance=ExtResource( 11 )]
 
@@ -79,7 +88,7 @@ position = Vector2( 456, 245 )
 scale = Vector2( 0.12, 0.08 )
 player = NodePath("../Small Guy")
 player2 = NodePath("../Tall Guy")
-next_level = "res://levels/Level_2.tscn"
+current_level = 1
 
 [node name="Door" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
@@ -98,4 +107,5 @@ script = ExtResource( 9 )
 require_button = true
 
 [editable path="Scene Transition"]
+[editable path="Level Complete"]
 [editable path="Pause Menu"]

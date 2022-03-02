@@ -2,6 +2,7 @@ extends Control
 
 
 var paused = false
+var complete = false
 
 onready var level = get_tree()
 onready var sprite = $"P Menu"
@@ -10,8 +11,13 @@ onready var reset = $"Reset"
 onready var menu = $"Menu"
 onready var pos = $"P Menu".position
 
+func _ready():
+	LevelState.connect("complete", self, "stop")
 
 func _process(_delta):
+	if complete == true:
+		return
+		
 	if Input.is_action_just_pressed("pause"):
 		if paused == false:
 			level.paused = true
@@ -37,6 +43,9 @@ func _process(_delta):
 	else:
 		sprite.set_frame(0)
 		
+func stop(lev):
+	complete = true
+	lev = lev
 
 func _on_Resume_pressed():
 	level.paused = false
@@ -52,4 +61,4 @@ func _on_Reset_pressed():
 
 func _on_Menu_pressed():
 	level.paused = false
-	SceneChange.scene_change("res://levels/temp_menu.tscn", pos)
+	SceneChange.scene_change("res://levels/levels.tscn", pos)

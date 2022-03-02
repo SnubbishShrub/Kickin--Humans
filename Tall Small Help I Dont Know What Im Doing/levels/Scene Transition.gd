@@ -5,6 +5,7 @@ func _ready():
 	$Sprite.set_frame(0)
 	$AnimationPlayer.play("Open")
 	SceneChange.connect("scene_change", self, "close")
+	get_tree().paused = false
 
 
 func close(scene, pos):
