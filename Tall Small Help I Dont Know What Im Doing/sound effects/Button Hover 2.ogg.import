@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Button Hover 2.ogg-9e6b511fcfe33353ae9e4318b9a37d9e.oggstr"
+
+[deps]
+
+source_file="res://sound effects/Button Hover 2.ogg"
+dest_files=[ "res://.import/Button Hover 2.ogg-9e6b511fcfe33353ae9e4318b9a37d9e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

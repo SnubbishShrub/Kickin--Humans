@@ -8,9 +8,8 @@ pause_mode = 2
 follow_viewport_enable = true
 
 [node name="Control" type="Control" parent="."]
-margin_top = -1.0
 margin_right = 40.0
-margin_bottom = 39.0
+margin_bottom = 40.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -28,6 +27,8 @@ margin_left = -49.0
 margin_top = -30.0
 margin_right = -37.0
 margin_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
 rect_scale = Vector2( 7.8448, 1.0973 )
 disabled = true
 action_mode = 0
@@ -41,6 +42,8 @@ margin_left = -49.0
 margin_top = 5.0
 margin_right = -37.0
 margin_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 rect_scale = Vector2( 7.84, 1.14585 )
 disabled = true
 action_mode = 0
@@ -54,6 +57,8 @@ margin_left = -49.0
 margin_top = 43.0
 margin_right = 12.0
 margin_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
 rect_scale = Vector2( 1.56012, 1.17333 )
 disabled = true
 action_mode = 0

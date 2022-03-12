@@ -7,8 +7,10 @@ func _ready():
 		if n.name in LevelState.unlocked:
 			n.disabled = false
 			n.connect("pressed", self, "change", [n.name, get_node("Control/" + n.name).get_global_position()])
+			n.connect("mouse_entered", self, "button_noise", ["2"])
 		else:
 			n.disabled = true
+			n.connect("mouse_entered", self, "button_noise", ["1"])
 			
 	$Sprite.set_frame(LevelState.unlocked.size() - 1)
 	
@@ -23,3 +25,5 @@ func change(level, pos):
 	var scene = "res://levels/Level_" + level + ".tscn"
 	SceneChange.scene_change(scene, pos)
 
+func button_noise(num):
+	get_node("Button Noise" + num).play()

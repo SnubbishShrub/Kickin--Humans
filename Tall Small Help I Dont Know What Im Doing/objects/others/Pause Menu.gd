@@ -1,5 +1,6 @@
 extends Control
 
+export (NodePath) var camera
 
 var paused = false
 var complete = false
@@ -9,7 +10,6 @@ onready var sprite = $"P Menu"
 onready var resume = $"Resume"
 onready var reset = $"Reset"
 onready var menu = $"Menu"
-onready var pos = $"P Menu".position
 
 func _ready():
 	LevelState.connect("complete", self, "stop")
@@ -18,6 +18,9 @@ func _process(_delta):
 	if complete == true:
 		return
 		
+	rect_global_position = get_node(camera).global_position
+	rect_scale = get_node(camera).zoom
+	
 	if Input.is_action_just_pressed("pause"):
 		if paused == false:
 			level.paused = true
@@ -57,8 +60,8 @@ func _on_Resume_pressed():
 
 func _on_Reset_pressed():
 	level.paused = false
-	SceneChange.scene_change(get_tree().current_scene.filename, pos)
+	SceneChange.scene_change(get_tree().current_scene.filename, rect_global_position)
 
 func _on_Menu_pressed():
 	level.paused = false
-	SceneChange.scene_change("res://levels/levels.tscn", pos)
+	SceneChange.scene_change("res://levels/levels.tscn", rect_global_position)

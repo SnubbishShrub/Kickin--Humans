@@ -1,5 +1,6 @@
 extends Control
 
+export (NodePath) var camera
 
 var current_level
 
@@ -15,7 +16,8 @@ func _ready():
 	LevelState.connect("complete", self, "pop_up")
 	
 func _process(_delta):
-	pass
+	rect_global_position = get_node(camera).global_position
+	rect_scale = get_node(camera).zoom
 	#if next.is_hovered():
 		#sprite.set_frame(1)
 	#elif reset.is_hovered():
