@@ -1,7 +1,5 @@
 extends Control
 
-
-
 func _ready():
 	for n in $Control.get_children():
 		if n.name in LevelState.unlocked:

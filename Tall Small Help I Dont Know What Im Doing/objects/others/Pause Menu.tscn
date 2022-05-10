@@ -5,18 +5,13 @@
 
 [node name="Pause Menu" type="CanvasLayer"]
 pause_mode = 2
-follow_viewport_enable = true
 
 [node name="Control" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="P Menu" type="Sprite" parent="Control"]
-visible = false
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 hframes = 4

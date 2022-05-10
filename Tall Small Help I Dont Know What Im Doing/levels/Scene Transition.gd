@@ -12,7 +12,6 @@ func _ready():
 
 func close(scene, pos):
 	$Sprite.position = pos
-	print(scene)
 	$AnimationPlayer.play("Close")
 	yield($AnimationPlayer, "animation_finished")
 	get_tree().change_scene(scene)

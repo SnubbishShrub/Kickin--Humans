@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://objects/tiles/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/tiles/Lever.tscn" type="PackedScene" id=2]
@@ -11,12 +11,9 @@
 [ext_resource path="res://objects/others/Launcher.tscn" type="PackedScene" id=9]
 [ext_resource path="res://levels/NormalTiles.gd" type="Script" id=10]
 [ext_resource path="res://objects/tiles/BreakableTile.tscn" type="PackedScene" id=11]
-[ext_resource path="res://levels/Scene Transition.tscn" type="PackedScene" id=12]
 
 [node name="Demo" type="Node2D"]
 position = Vector2( -14, 1 )
-
-[node name="Scene Transition" parent="." instance=ExtResource( 12 )]
 
 [node name="Tall Guy" parent="." instance=ExtResource( 3 )]
 
@@ -26,9 +23,7 @@ position = Vector2( -14, 1 )
 position = Vector2( 606, 400 )
 scale = Vector2( 0.679999, 0.72 )
 current = true
-zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 5 )
-target = NodePath("../Small Guy")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 8 )
@@ -57,5 +52,3 @@ guy = NodePath("../Small Guy")
 
 [node name="Launcher" parent="." instance=ExtResource( 9 )]
 position = Vector2( 591, 453 )
-
-[editable path="Scene Transition"]

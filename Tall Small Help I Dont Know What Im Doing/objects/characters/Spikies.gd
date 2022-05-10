@@ -29,7 +29,7 @@ func _process(_delta):
 	if $"Area2D".overlaps_body(get_node(guy)):
 		get_tree().reload_current_scene()
 	
-func jump():
+func jump(_value):
 	velocity.y = jump_speed
 	jumped = true
 

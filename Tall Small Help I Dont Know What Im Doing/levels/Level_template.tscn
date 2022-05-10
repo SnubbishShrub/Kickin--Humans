@@ -24,11 +24,13 @@ start = NodePath("../Camera Center")
 [node name="Level Complete" parent="." instance=ExtResource( 1 )]
 
 [node name="Control" parent="Level Complete" index="0"]
+visible = false
 camera = NodePath("../../Shake Camera")
 
 [node name="Pause Menu" parent="." instance=ExtResource( 4 )]
 
 [node name="Control" parent="Pause Menu" index="0"]
+visible = false
 camera = NodePath("../../Shake Camera")
 
 [node name="Level Music" parent="." instance=ExtResource( 8 )]
@@ -36,7 +38,6 @@ camera = NodePath("../../Shake Camera")
 [node name="Shake Camera" parent="." instance=ExtResource( 2 )]
 position = Vector2( 288, 144 )
 current = true
-center = NodePath("../Camera Center")
 
 [node name="Small Guy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 221, 227 )
