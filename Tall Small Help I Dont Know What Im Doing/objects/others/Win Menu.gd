@@ -18,15 +18,7 @@ func _ready():
 func _process(_delta):
 	rect_global_position = get_node(camera).global_position
 	rect_scale = get_node(camera).zoom
-	#if next.is_hovered():
-		#sprite.set_frame(1)
-	#elif reset.is_hovered():
-		#sprite.set_frame(2)
-	#elif menu.is_hovered():
-		#sprite.set_frame(3)
-	#else:
-		#sprite.set_frame(0)
-		
+
 func pop_up(lev):
 	level.paused = true
 	sprite.visible = true

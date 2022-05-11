@@ -24,12 +24,16 @@ position = Vector2( 290, 142 )
 [node name="Level Complete" parent="." instance=ExtResource( 7 )]
 
 [node name="Control" parent="Level Complete" index="0"]
+visible = false
 margin_left = 293.0
 margin_top = 146.0
 margin_right = 333.0
 margin_bottom = 186.0
 
 [node name="Pause Menu" parent="." instance=ExtResource( 5 )]
+
+[node name="Control" parent="Pause Menu" index="0"]
+visible = false
 
 [node name="P Menu" parent="Pause Menu/Control" index="0"]
 position = Vector2( 290, 140 )
