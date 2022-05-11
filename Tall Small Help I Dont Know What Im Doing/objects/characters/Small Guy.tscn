@@ -239,16 +239,6 @@ script = ExtResource( 2 )
 position = Vector2( 0.5, 0 )
 shape = SubResource( 3 )
 
-[node name="Left Raycast" type="RayCast2D" parent="."]
-rotation = -1.5708
-scale = Vector2( 1, -0.16 )
-enabled = true
-
-[node name="Right Raycast" type="RayCast2D" parent="."]
-rotation = -1.5708
-scale = Vector2( 1, 0.16 )
-enabled = true
-
 [node name="lg_sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 11

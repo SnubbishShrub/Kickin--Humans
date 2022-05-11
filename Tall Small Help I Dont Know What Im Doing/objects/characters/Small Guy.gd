@@ -53,10 +53,10 @@ func _physics_process(delta):
 			velocity.y = jump_speed
 		
 		# Wall Jump
-		elif $"Left Raycast".is_colliding() and not Input.is_action_pressed("sg_left"):
+		elif is_on_wall() and Input.is_action_pressed("sg_left"):
 				velocity.y = wall_jump_speed_y
 				velocity.x = wall_jump_speed_x
-		elif $"Right Raycast".is_colliding() and not Input.is_action_pressed("sg_right"):
+		elif is_on_wall() and Input.is_action_pressed("sg_right"):
 				velocity.y = wall_jump_speed_y
 				velocity.x = -wall_jump_speed_x
 				
@@ -77,8 +77,7 @@ func _physics_process(delta):
 		state_machine.travel("Fall")
 	if Input.is_action_just_pressed("sg_up") and is_on_floor():
 		state_machine.travel("Jump")
-	elif ($"Left Raycast".is_colliding() or $"Right Raycast".is_colliding()) and \
-	not is_on_floor():
+	elif is_on_wall() and not is_on_floor():
 		state_machine.travel("Slide")
 
 # Kicked
