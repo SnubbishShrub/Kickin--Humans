@@ -1,2 +1,0 @@
-# Kickin' Humans
- Kick
